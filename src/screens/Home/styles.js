@@ -1,5 +1,5 @@
 // *REACT IMPORTS BELOW //
-import { StyleSheet, Dimensions } from "react-native";
+import { StyleSheet, Dimensions, StatusBar, Platform } from "react-native";
 
 // *STYLE CODE BELOW //
 const { height, width } = Dimensions.get('window');
@@ -8,12 +8,21 @@ const { height, width } = Dimensions.get('window');
 import { theme } from '../../theme/theme';
 
 //* STYLES CODE//
+const Android = Platform.OS === 'android';
+
 export const styles = StyleSheet.create({
   page: {
     flex: 1,
     backgroundColor: theme.cream,
-
-    // alignItems: 'center',
-    // justifyContent: 'center',
+    padding: 5,
   },
+  title: {
+    fontSize: 30,
+    fontWeight: '200',
+    color: theme.blue
+  }
+});
+
+export const AndroidView = StyleSheet.create({
+  paddingTop: Android ? StatusBar.currentHeight : 0,
 });

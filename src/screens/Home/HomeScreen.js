@@ -2,23 +2,25 @@
 import { View, Text, FlatList } from 'react-native'
 
 //* STYLE IMPORT//
-import { styles } from './styles';
+import { AndroidView, styles } from './styles';
+
+//* COMPONENT IMPORT//
+import ProductList from '../../component/Products/ProductList';
 
 //* DATA IMPORT//
 import food from '../../../assets/data/food.json';
-import ProductList from '../../component/Products/ProductList';
 
 //* HOME SCREEN CODE//
 const HomeScreen = () => {
   return (
-    <View style={styles.page}>
-      <Text>HomeScreen</Text>
+    <View style={[AndroidView, styles.page]}>
+      <Text style={styles.title}>Welcome</Text>
       <FlatList
         data={food}
         renderItem={({ item }) => <ProductList list={item} />}
       />
     </View>
-  )
-}
+  );
+};
 
 export default HomeScreen;

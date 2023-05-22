@@ -11,18 +11,12 @@ export const styles = StyleSheet.create({
   cardContainer: {
     flexDirection: 'row',
     marginVertical: 20,
-    marginHorizontal: 5
   },
   image: {
     width: 150,
     height: 150,
     borderBottomLeftRadius: 50,
     borderTopRightRadius: 50
-  },
-  icon: {
-    position: 'relative',
-    bottom: 30,
-    left: 20,
   },
   infoContainer: {
     flex: 1,
@@ -32,23 +26,27 @@ export const styles = StyleSheet.create({
   name: {
     fontSize: 18,
     fontWeight: '500',
-    color: theme.pink
+    color: theme.grn
   },
   price: {
     fontSize: 15,
   },
   desContainer: {
-    backgroundColor: theme.grn,
+    backgroundColor: theme.blue,
     borderTopLeftRadius: 10,
     borderBottomRightRadius: 10,
     padding: 5,
   },
   description: {
     fontSize: 12,
+    color: theme.wht,
     marginBottom: 5
   },
   details: {
     flexDirection: 'row',
     alignItems: 'center',
+  },
+  iconTxt: {
+    color: theme.pink
   }
 });

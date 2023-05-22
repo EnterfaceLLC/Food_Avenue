@@ -3,9 +3,10 @@ import { View, Text, TouchableOpacity } from 'react-native';
 
 import { useNavigation } from '@react-navigation/native';
 
-//* STYLE, ICON IMPORTS//
+//* STYLE, ICON, THEME IMPORTS//
 import { styles } from './styles';
 import { Ionicons } from '@expo/vector-icons';
+import { theme } from '../../theme/theme';
 
 //* EXPO IMAGE//
 import { Image } from 'expo-image';
@@ -28,8 +29,8 @@ const ProductList = ({ list }) => {
         <View style={styles.desContainer}>
           <Text numberOfLines={2} style={styles.description}>{list.description}</Text>
           <TouchableOpacity style={styles.details} onPress={() => navigation.navigate('Products')}>
-            <Ionicons name="open-outline" size={24} color="black" />
-            <Text>Details</Text>
+            <Ionicons name="open-outline" size={24} color={theme.pink} />
+            <Text style={styles.iconTxt}>Details</Text>
           </TouchableOpacity>
         </View>
       </View>
