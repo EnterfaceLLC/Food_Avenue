@@ -12,7 +12,8 @@ export const styles = StyleSheet.create({
   page: {
     flex: 1,
     backgroundColor: theme.cream,
-    alignItems: 'center',
-    justifyContent: 'center',
+
+    // alignItems: 'center',
+    // justifyContent: 'center',
   },
 });
