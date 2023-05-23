@@ -32,7 +32,7 @@ const HomeScreen = () => {
       </View>
       <FlatList
         data={products}
-        renderItem={({ item }) => <ProductList list={item} />}
+        renderItem={({ item }) => <ProductList product={item} />}
       />
     </View>
   );

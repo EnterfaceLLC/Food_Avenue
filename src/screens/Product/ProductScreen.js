@@ -1,6 +1,12 @@
 //* RN IMPORTS//
-import { View, Text, TouchableOpacity } from 'react-native';
-import { useState } from 'react';
+import { View, Text, TouchableOpacity, ActivityIndicator } from 'react-native';
+import { useState, useEffect } from 'react';
+import { useRoute } from '@react-navigation/native';
+
+//* AWS IMPORT//
+import { Auth, DataStore } from 'aws-amplify';
+import { Product } from '../../models';
+import '@azure/core-asynciterator-polyfill';
 
 //* STYLE, ICON IMPORTS//
 import { AndroidView, styles } from './styles';
@@ -13,11 +19,21 @@ import { Image } from 'expo-image';
 import food from '../../../assets/data/food.json';
 
 //* PRODUCT SCREEN CODE//
-const entree = food[0];
+// const entree = food[0];
 
 const ProductScreen = () => {
-  // const [entree, setEntree] = useState(null);
+  const [product, setProduct] = useState(null);
   const [itemQty, setItemQty] = useState(1);
+
+  const route = useRoute();
+  const id = route.params?.id;
+
+  useEffect(() => {
+    if (!id) {
+      return;
+    }
+    DataStore.query(Product, id).then(setProduct);
+  }, [id]);
 
   const minus = () => {
     if (itemQty > 1) {
@@ -30,22 +46,26 @@ const ProductScreen = () => {
   };
 
   const getTotal = () => {
-    return (entree.price * itemQty).toFixed(2);
+    return (product.price * itemQty).toFixed(2);
+  };
+
+  if (!product) {
+    return <ActivityIndicator size={100} />
   };
 
   return (
     <View style={[AndroidView, styles.page]}>
       <View style={styles.head}>
-        <Text style={styles.name}>{food[0].name}</Text>
+        <Text style={styles.name}>{product.name}</Text>
       </View>
       <Image
         style={styles.image}
-        source={food[0].image}
+        source={product.image}
         transition={1000}
       />
 
       <View style={styles.description}>
-        <Text style={styles.desTxt}>{food[0].description}</Text>
+        <Text style={styles.desTxt}>{product.description}</Text>
       </View>
 
 
