@@ -36,6 +36,9 @@ export const styles = StyleSheet.create({
     height: 250,
     borderBottomLeftRadius: 50,
     borderTopRightRadius: 50,
+    borderTopWidth: 5,
+    borderBottomWidth: 5,
+    borderColor: theme.pink,
     alignSelf: 'center',
     elevation: 3
   },

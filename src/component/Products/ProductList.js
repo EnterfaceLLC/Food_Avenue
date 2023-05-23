@@ -25,7 +25,7 @@ const ProductList = ({ list }) => {
       />
       <View style={styles.infoContainer}>
         <Text style={styles.name}>{list.name}</Text>
-        <Text style={styles.price}>${list.price}</Text>
+        <Text style={styles.price}>${list.price.toFixed(2)}</Text>
         <View style={styles.desContainer}>
           <Text numberOfLines={2} style={styles.description}>{list.description}</Text>
           <TouchableOpacity style={styles.details} onPress={() => navigation.navigate('Products')}>

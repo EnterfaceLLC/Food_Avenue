@@ -1,0 +1,14 @@
+type CartProduct @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  quantity: Int!
+  userSub: String!
+  Product: Product @hasOne
+}
+
+type Product @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String!
+  description: String!
+  price: Float!
+  image: String
+}

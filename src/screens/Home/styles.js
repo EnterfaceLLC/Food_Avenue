@@ -20,7 +20,12 @@ export const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: '200',
     color: theme.blue
-  }
+  },
+  head: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center'
+  },
 });
 
 export const AndroidView = StyleSheet.create({

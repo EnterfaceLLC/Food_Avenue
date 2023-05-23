@@ -9,11 +9,13 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@azure/core-asynciterator-polyfill": "^1.0.2",
     "@react-native-async-storage/async-storage": "^1.18.1",
     "@react-native-community/netinfo": "^9.3.10",
     "@react-navigation/native": "^6.1.6",
     "@react-navigation/stack": "^6.3.16",
     "aws-amplify": "^5.2.2",
+    "aws-amplify-react-native": "^7.0.2",
     "expo": "~48.0.15",
     "expo-image": "~1.0.1",
     "expo-status-bar": "~1.4.4",
