@@ -5,7 +5,7 @@ import { useRoute } from '@react-navigation/native';
 
 //* AWS IMPORT//
 import { Auth, DataStore } from 'aws-amplify';
-import { Product } from '../../models';
+import { Product, CartProduct } from '../../models';
 import '@azure/core-asynciterator-polyfill';
 
 //* STYLE, ICON IMPORTS//
@@ -16,7 +16,7 @@ import { AntDesign } from '@expo/vector-icons';
 import { Image } from 'expo-image';
 
 //* DATA IMPORT//
-import food from '../../../assets/data/food.json';
+// import food from '../../../assets/data/food.json';
 
 //* PRODUCT SCREEN CODE//
 // const entree = food[0];
@@ -49,6 +49,23 @@ const ProductScreen = () => {
     return (product.price * itemQty).toFixed(2);
   };
 
+  const addToCart = async () => {
+    const userData = await Auth.currentAuthenticatedUser();
+    console.log(userData);
+
+    if (!product || !userData) {
+      return;
+    }
+
+    const newCartProduct = new CartProduct({
+      quantity: itemQty,
+      userSub: userData.attributes.sub,
+      cartProductProductId: product.id,
+    })
+
+    DataStore.save(newCartProduct);
+  };
+
   if (!product) {
     return <ActivityIndicator size={100} />
   };
@@ -75,8 +92,11 @@ const ProductScreen = () => {
         <AntDesign name="pluscircleo" size={50} color="black" onPress={plus} />
       </View>
 
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.price}>${getTotal()}</Text>
+      <TouchableOpacity style={styles.button} onPress={addToCart}>
+        <Text
+          style={styles.price}>
+          Add <Text style={styles.highlight}>{itemQty}</Text> &#8226; ${getTotal()}
+        </Text>
       </TouchableOpacity>
     </View>
   );

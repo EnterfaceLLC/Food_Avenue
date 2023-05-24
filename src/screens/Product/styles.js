@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
     backgroundColor: theme.blue,
     padding: 10,
     marginRight: '20%',
-    marginTop: 15,
+    // marginTop: 15,
     borderBottomRightRadius: 25,
     borderBottomWidth: 5,
     borderColor: theme.pink
@@ -72,14 +72,15 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     borderTopRightRadius: 25,
     borderTopLeftRadius: 25,
-    // position: 'absolute',
-    // bottom: 0,
+    elevation: 3
   },
   price: {
     fontSize: 20,
-    fontWeight: '500',
     padding: 15,
   },
+  highlight: {
+    textDecorationLine: 'underline',
+  }
 });
 
 export const AndroidView = StyleSheet.create({
