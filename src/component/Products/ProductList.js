@@ -10,7 +10,7 @@ import { theme } from '../../theme/theme';
 //* EXPO IMAGE//
 import { Image } from 'expo-image';
 
-//* PRODUCT LIST COMPONENTS//
+//* PRODUCT LIST COMPONENT//
 const ProductList = ({ product }) => {
   const navigation = useNavigation();
 

@@ -1,7 +1,7 @@
 //* RN IMPORTS//
 import { View, Text, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { useState, useEffect } from 'react';
-import { useRoute } from '@react-navigation/native';
+import { useRoute, useNavigation } from '@react-navigation/native';
 
 //* AWS IMPORT//
 import { Auth, DataStore } from 'aws-amplify';
@@ -27,6 +27,7 @@ const ProductScreen = () => {
 
   const route = useRoute();
   const id = route.params?.id;
+  const navigation = useNavigation();
 
   useEffect(() => {
     if (!id) {
@@ -63,7 +64,8 @@ const ProductScreen = () => {
       cartProductProductId: product.id,
     })
 
-    DataStore.save(newCartProduct);
+    await DataStore.save(newCartProduct);
+    navigation.navigate('Cart');
   };
 
   if (!product) {
