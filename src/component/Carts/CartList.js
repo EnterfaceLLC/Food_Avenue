@@ -7,12 +7,14 @@ import { AndroidView, styles } from './styles';
 
 
 //* CART LIST COMPONENT//
-const CartList = ({ product }) => {
+const CartList = ({ cartItem }) => {
   return (
     <View style={styles.cardContainer}>
-      <Text>Qty: 2</Text>
-      <Text>{product.name}</Text>
-      <Text>{product.price}</Text>
+      <Text style={styles.qty}>{cartItem.quantity}</Text>
+      <View style={styles.productInfo}>
+        <Text>{cartItem.product.name}</Text>
+        <Text>${cartItem.product.price.toFixed(2)}</Text>
+      </View>
     </View>
   );
 };

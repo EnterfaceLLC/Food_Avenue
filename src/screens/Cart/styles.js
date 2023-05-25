@@ -36,6 +36,23 @@ export const styles = StyleSheet.create({
     color: theme.wht,
     marginLeft: 10
   },
+  summaryCont: {
+    flexDirection: 'row',
+    backgroundColor: theme.blue,
+    padding: 10,
+    justifyContent: 'space-evenly',
+    marginVertical: 10,
+    borderTopWidth: 5,
+    borderBottomWidth: 5,
+    borderColor: theme.pink
+  },
+  label: {
+    color: theme.wht
+  },
+  price: {
+    color: theme.wht,
+    fontWeight: '500'
+  },
   button: {
     backgroundColor: theme.grn,
     width: width,
