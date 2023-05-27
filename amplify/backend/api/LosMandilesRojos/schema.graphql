@@ -1,3 +1,18 @@
+type OrderProduct @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  quantity: Int!
+  Product: Product @hasOne
+  Order: Order @hasOne
+}
+
+type Order @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  userSub: String!
+  fullName: String!
+  phone: String!
+  address: String
+}
+
 type CartProduct @model @auth(rules: [{allow: public}]) {
   id: ID!
   quantity: Int!
