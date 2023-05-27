@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "name": "The Temptation Stack",
+    "description": "The perfection combination of prime rib and angus beef. Guarantee to make you break your diet. Topped with garden fresh veggies and secret sauce.",
+    "price": 10.99,
+    "image": "https://res.cloudinary.com/dwpkjvars/image/upload/v1684719922/LMR/ai-generated-g85eb82891_640_vsjqop.jpg"
+  },
+  {
+    "id": 2,
+    "name": "The Monster Stack",
+    "description": "The delicious monster of a burger is created with our finest sirloin steak. Do you dare to take on this tower of a burger.",
+    "price": 12.99,
+    "image": "https://res.cloudinary.com/dwpkjvars/image/upload/v1684719922/LMR/ai-generated-gc8a148a3d_640_sszdxq.jpg"
+  },
+  {
+    "id": 3,
+    "name": "The Baby Stack",
+    "description": "The perfection combination of prime rib and angus beef. Guarantee to make you break your diet.",
+    "price": 8.99,
+    "image": "https://res.cloudinary.com/dwpkjvars/image/upload/v1684719922/LMR/ai-generated-g85eb82891_640_vsjqop.jpg"
+  },
+  {
+    "id": 4,
+    "name": "The Bean Stack",
+    "description": "The delicious monster of a burger is created with our finest sirloin steak. Do you dare to take on this tower of a burger.",
+    "price": 11.99,
+    "image": "https://res.cloudinary.com/dwpkjvars/image/upload/v1684719922/LMR/ai-generated-gc8a148a3d_640_sszdxq.jpg"
+  },
+  {
+    "id": 5,
+    "name": "The Temptation Stack",
+    "description": "The perfection combination of prime rib and angus beef. Guarantee to make you break your diet. Topped with garden fresh veggies and secret sauce.",
+    "price": 10.99,
+    "image": "https://res.cloudinary.com/dwpkjvars/image/upload/v1684719922/LMR/ai-generated-g85eb82891_640_vsjqop.jpg"
+  },
+  {
+    "id": 6,
+    "name": "The Monster Stack",
+    "description": "The delicious monster of a burger is created with our finest sirloin steak. Do you dare to take on this tower of a burger.",
+    "price": 12.99,
+    "image": "https://res.cloudinary.com/dwpkjvars/image/upload/v1684719922/LMR/ai-generated-gc8a148a3d_640_sszdxq.jpg"
+  },
+  {
+    "id": 7,
+    "name": "The Baby Stack",
+    "description": "The perfection combination of prime rib and angus beef. Guarantee to make you break your diet.",
+    "price": 8.99,
+    "image": "https://res.cloudinary.com/dwpkjvars/image/upload/v1684719922/LMR/ai-generated-g85eb82891_640_vsjqop.jpg"
+  },
+  {
+    "id": 8,
+    "name": "The Bean Stack",
+    "description": "The delicious monster of a burger is created with our finest sirloin steak. Do you dare to take on this tower of a burger.",
+    "price": 11.99,
+    "image": "https://res.cloudinary.com/dwpkjvars/image/upload/v1684719922/LMR/ai-generated-gc8a148a3d_640_sszdxq.jpg"
+  }
+]

@@ -1,0 +1,20 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-losmandilesrojos-staging-131131-authRole",
+      "UnauthRoleArn": "arn:aws:iam::638558189245:role/amplify-losmandilesrojos-staging-131131-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::638558189245:role/amplify-losmandilesrojos-staging-131131-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-losmandilesrojos-staging-131131-deployment",
+      "UnauthRoleName": "amplify-losmandilesrojos-staging-131131-unauthRole",
+      "StackName": "amplify-losmandilesrojos-staging-131131",
+      "StackId": "arn:aws:cloudformation:us-east-2:638558189245:stack/amplify-losmandilesrojos-staging-131131/d6d00300-f70f-11ed-8c8d-0adeceb328ef",
+      "AmplifyAppId": "d20e66mbm1t0ho"
+    },
+    "categories": {
+      "auth": {
+        "LosMandilesRojos": {}
+      }
+    }
+  }
+}
