@@ -6,6 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from '../screens/Home/HomeScreen';
 import ProductScreen from '../screens/Product/ProductScreen';
 import CartScreen from '../screens/Cart/CartScreen';
+import CheckoutScreen from '../screens/Checkout/CheckoutScreen';
 
 //* ROOT NAVIGATION//
 const Stack = createStackNavigator();
@@ -31,6 +32,11 @@ const Root = () => {
         <Stack.Screen
           name='Cart'
           component={CartScreen}
+        />
+
+        <Stack.Screen
+          name='Check'
+          component={CheckoutScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>

@@ -1,9 +1,10 @@
 //* RN IMPORTS//
 import { View, Text, FlatList, TouchableOpacity, ActivityIndicator } from 'react-native';
 import React, { useState, useEffect } from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 //* AWS IMPORT//
-import { Auth, DataStore } from 'aws-amplify';
+import { DataStore } from 'aws-amplify';
 import { Product, CartProduct } from '../../models';
 
 //* STYLE, ICON IMPORTS//
@@ -19,6 +20,8 @@ import CartList from '../../component/Carts/CartList';
 //* CART SCREEN CODE/
 const CartScreen = () => {
   const [cartProducts, setCartProducts] = useState([]);
+
+  const navigation = useNavigation();
 
   useEffect(() => {
     const fetchCartProducts = async () => {
@@ -87,7 +90,7 @@ const CartScreen = () => {
         </View>
       </View>
 
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Check', { totalPrice })}>
         <Text style={styles.buttonTxt}>Checkout</Text>
       </TouchableOpacity>
     </View>
