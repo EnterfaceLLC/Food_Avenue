@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 
 //* AWS IMPORT//
-import { DataStore } from 'aws-amplify';
+import { DataStore, Auth } from 'aws-amplify';
 import { Product, CartProduct } from '../../models';
 
 //* STYLE, ICON IMPORTS//
@@ -25,7 +25,9 @@ const CartScreen = () => {
 
   useEffect(() => {
     const fetchCartProducts = async () => {
-      DataStore.query(CartProduct).then(setCartProducts);
+      const userData = await Auth.currentAuthenticatedUser();
+
+      DataStore.query(CartProduct, cp => cp.userSub.eq(userData.attributes.sub),).then(setCartProducts);
     };
     fetchCartProducts();
   }, []);

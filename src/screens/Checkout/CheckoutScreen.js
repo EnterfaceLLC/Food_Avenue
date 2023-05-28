@@ -1,6 +1,11 @@
 //* RN IMPORTS//
 import { Platform, ScrollView, KeyboardAvoidingView, View, Text, TextInput, TouchableOpacity } from 'react-native';
 import React, { useState, useEffect } from 'react';
+import { useNavigation } from '@react-navigation/native';
+
+//* AWS IMPORT//
+import { DataStore, Auth } from 'aws-amplify';
+import { Order, CartProduct, OrderProduct } from '../../models';
 
 //* STYLE IMPORT//
 import { AndroidView, styles } from './styles';
@@ -14,7 +19,47 @@ const CheckoutScreen = () => {
   const [phone, setPhone] = useState('');
   const [address, setAddress] = useState('');
 
+  const navigation = useNavigation();
+
   const img = 'https://res.cloudinary.com/dwpkjvars/image/upload/v1685197967/hamburger-g174994245_1280_cuxslr.jpg';
+
+  const saveOrder = async () => {
+    //* Get User details
+    const userData = await Auth.currentAuthenticatedUser();
+
+    //* Create New order
+    const newOrder = await DataStore.save(
+      new Order({
+        userSub: userData.attributes.sub,
+        fullName: name,
+        phone,
+        address,
+      }),
+    );
+
+    //* Fetch all cart products
+    const cartItems = await DataStore.query(CartProduct, cp =>
+      cp.userSub.eq(userData.attributes.sub),
+    );
+
+    //* Set all cart products to Order
+    await Promise.all(
+      cartItems.map(cartItem => DataStore.save(new OrderProduct({
+        quantity: cartItem.quantity,
+        orderProductProductId: cartItem.cartProductProductId,
+        orderProductOrderId: newOrder.id,
+      })))
+    );
+
+    //* Delete all cart products
+    await Promise.all(
+      cartItems.map(cartItem => DataStore.delete(cartItem))
+    );
+
+    //* Navigate to Home Screen
+    navigation.navigate('Home');
+
+  };
 
   return (
     <KeyboardAvoidingView style={[AndroidView, styles.page]}
@@ -28,7 +73,7 @@ const CheckoutScreen = () => {
             source={{ uri: img }}
             transition={1000}
           />
-          <Text style={styles.title}>CheckoutScreen</Text>
+          <Text style={styles.title}>Order Confirmation</Text>
         </View>
 
         <View style={styles.userInfo}>
@@ -63,7 +108,7 @@ const CheckoutScreen = () => {
               textContentType='telephoneNumber'
               placeholder='332 SE Main st.'
               placeholderTextColor='white'
-              keyboardType='number-pad'
+              keyboardType='default'
               value={address}
               onChangeText={setAddress}
             />
@@ -72,8 +117,8 @@ const CheckoutScreen = () => {
 
 
       </ScrollView>
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonTxt}>Checkout</Text>
+      <TouchableOpacity style={styles.button} onPress={saveOrder}>
+        <Text style={styles.buttonTxt}>Submit</Text>
       </TouchableOpacity>
     </KeyboardAvoidingView>
   );
